@@ -4,7 +4,6 @@ import com.piyushprajpti.pychat.domain.service.AuthService
 
 class AuthServiceImpl: AuthService {
     override fun login() {
-
     }
 
     override fun signup() {
