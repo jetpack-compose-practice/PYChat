@@ -28,7 +28,10 @@ fun WalkthroughScreen(
 //    viewModel: LoginViewModel = hiltViewModel()
 ) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(
             modifier = Modifier
@@ -44,17 +47,21 @@ fun WalkthroughScreen(
                 modifier = Modifier.size(200.dp),
             )
             Spacer(modifier = Modifier.height(8.dp))
-            NonClickableBoldText(text = "Connect easily with your friends and family")
+            HeadlineText(text = "Connect easily with your friends and family")
         }
 
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(.2f)
-                .padding(vertical = 15.dp),
+                .weight(.3f)
+                .padding(vertical = 20.dp),
             verticalArrangement = Arrangement.Center
         ) {
-            ClickableText(text = "Terms & Privacy Policy", onClick = {})
+            ClickableText(
+                text = "Terms & Privacy Policy",
+                color = MaterialTheme.colorScheme.secondary,
+                onClick = {})
+
             PrimaryActionButton(text = "Start Messaging", onClick = {})
         }
     }
@@ -67,7 +74,7 @@ fun WalkthroughScreen(
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-fun PreviewWrapper() {
+fun PreviewWrapper1() {
     PYChatTheme {
         Surface(color = MaterialTheme.colorScheme.background) {
             WalkthroughScreen()
