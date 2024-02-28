@@ -7,20 +7,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.outlined.Person
-import androidx.compose.material3.Icon
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.ui.theme.PYChatTheme
 
 @Composable
@@ -30,6 +29,8 @@ fun LoginScreen() {
             .fillMaxSize()
             .padding(12.dp)
     ) {
+        BackButton(onClick = {})
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -41,19 +42,35 @@ fun LoginScreen() {
             DescriptionText(text = "Continue where you left off")
         }
 
-        InputField()
-        InputField()
+        InputField(
+            label = "Email or Username",
+            value = "",
+            onValueChange = {},
+            keyboardType = KeyboardType.Email,
+            icon = Icons.Default.Email,
+        )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        InputField(
+            label = "Password",
+            value = "",
+            onValueChange = {},
+            keyboardType = KeyboardType.Password,
+            icon = Icons.Default.Lock,
+        )
 
-        PrimaryActionButton(text = "Login") {
+        Spacer(modifier = Modifier.height(40.dp))
 
-        }
+        PrimaryActionButton(text = "Login", onClick = {})
+
+        Spacer(modifier = Modifier.height(40.dp))
+
+        DescriptionText(text = "Don't have an Account?")
+
+        ClickableText(text = "Register", color = MaterialTheme.colorScheme.primary, onClick = {})
     }
 }
 
 @Preview(
-    showBackground = true,
     showSystemUi = true,
     device = Devices.PIXEL_4,
     uiMode = Configuration.UI_MODE_NIGHT_YES

@@ -11,3 +11,9 @@ val TextDT = Color(0xFFF7F7FC)
 
 val BackgroundLT = Color(0xFFFFFFFF)
 val BackgroundDT = Color(0xFF0F1828)
+
+val TextFieldBackgroundLT = Color(0XFFF7F7FC)
+val TextFieldBackgroundDT = Color(0XFF152033)
+
+val TextFieldLabelLT = Color(0xFFADB5BD)
+val TextFieldLabelDT = Color(0XFFF7F7FC)

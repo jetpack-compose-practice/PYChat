@@ -62,6 +62,8 @@ fun WalkthroughScreen(
                 color = MaterialTheme.colorScheme.secondary,
                 onClick = {})
 
+            Spacer(modifier = Modifier.height(20.dp))
+
             PrimaryActionButton(text = "Start Messaging", onClick = {})
         }
     }
