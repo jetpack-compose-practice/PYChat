@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Password
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -20,53 +21,57 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.presentation.BackButton
+import com.piyushprajpti.pychat.presentation.PrimaryMargin
 import com.piyushprajpti.pychat.ui.theme.PYChatTheme
 
 @Composable
 fun LoginScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(12.dp)
-    ) {
+    Column {
         BackButton(onClick = {})
 
         Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 25.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .fillMaxSize()
+                .padding(PrimaryMargin)
         ) {
-            HeadlineText(text = "Access Your Account")
-            Spacer(modifier = Modifier.height(5.dp))
-            DescriptionText(text = "Continue where you left off")
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 25.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                HeadlineText(text = "Access Your Account")
+                Spacer(modifier = Modifier.height(5.dp))
+                DescriptionText(text = "Continue where you left off")
+            }
+
+            InputField(
+                label = "Email or Username",
+                value = "",
+                onValueChange = {},
+                keyboardType = KeyboardType.Email,
+                icon = Icons.Default.Email,
+            )
+
+            InputField(
+                label = "Password",
+                value = "",
+                onValueChange = {},
+                keyboardType = KeyboardType.Password,
+                icon = Icons.Default.Password,
+            )
+
+            Spacer(modifier = Modifier.height(40.dp))
+
+            PrimaryActionButton(text = "Login", onClick = {})
+
+            Spacer(modifier = Modifier.height(40.dp))
+
+            DescriptionText(text = "Don't have an Account?")
+
+            ClickableText(text = "Register", color = MaterialTheme.colorScheme.primary, onClick = {})
         }
-
-        InputField(
-            label = "Email or Username",
-            value = "",
-            onValueChange = {},
-            keyboardType = KeyboardType.Email,
-            icon = Icons.Default.Email,
-        )
-
-        InputField(
-            label = "Password",
-            value = "",
-            onValueChange = {},
-            keyboardType = KeyboardType.Password,
-            icon = Icons.Default.Lock,
-        )
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        PrimaryActionButton(text = "Login", onClick = {})
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        DescriptionText(text = "Don't have an Account?")
-
-        ClickableText(text = "Register", color = MaterialTheme.colorScheme.primary, onClick = {})
     }
 }
 

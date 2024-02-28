@@ -2,6 +2,7 @@ package com.piyushprajpti.pychat.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -22,6 +23,7 @@ fun BackButton(onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(start = 3.dp,  top = 10.dp)
     ) {
         IconButton(onClick = { onClick() }) {
             Icon(
