@@ -30,6 +30,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.ui.theme.TextDT
 import com.piyushprajpti.pychat.ui.theme.TextFieldBackgroundDT
@@ -65,14 +66,17 @@ fun PrimaryActionButton(
 fun ClickableText(
     text: String,
     color: Color,
+    alignment: Alignment = Alignment.Center,
+    textDecoration: TextDecoration = TextDecoration.None,
     onClick: () -> Unit
 ) {
-    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = alignment) {
         Text(
             modifier = Modifier
                 .clickable { onClick() },
             text = text,
             color = color,
+            textDecoration = textDecoration,
             style = Typography.bodyLarge,
             textAlign = TextAlign.Center
         )
@@ -130,7 +134,7 @@ fun InputField(
             unfocusedContainerColor = if (isSystemInDarkTheme()) TextFieldBackgroundDT else TextFieldBackgroundLT,
             focusedContainerColor = if (isSystemInDarkTheme()) TextFieldBackgroundDT else TextFieldBackgroundLT,
             unfocusedLabelColor = if (isSystemInDarkTheme()) TextFieldLabelDT else TextFieldLabelLT,
-//            unfocusedLeadingIconColor = if (isSystemInDarkTheme()) TextFieldLabelDT else TextFieldLabelLT,
+            unfocusedLeadingIconColor = if (isSystemInDarkTheme()) TextFieldLabelDT else TextFieldLabelLT,
             unfocusedTrailingIconColor = if (isSystemInDarkTheme()) TextFieldLabelDT else TextFieldLabelLT,
             focusedLeadingIconColor = MaterialTheme.colorScheme.primary
         ),

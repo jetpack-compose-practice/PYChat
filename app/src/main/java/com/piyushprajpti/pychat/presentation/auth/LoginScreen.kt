@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Password
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -62,6 +62,13 @@ fun LoginScreen() {
                 icon = Icons.Default.Password,
             )
 
+            ClickableText(
+                text = "Reset Password",
+                color = MaterialTheme.colorScheme.secondary,
+                alignment = Alignment.CenterEnd,
+                textDecoration = TextDecoration.Underline,
+                onClick = {})
+
             Spacer(modifier = Modifier.height(40.dp))
 
             PrimaryActionButton(text = "Login", onClick = {})
@@ -70,7 +77,11 @@ fun LoginScreen() {
 
             DescriptionText(text = "Don't have an Account?")
 
-            ClickableText(text = "Register", color = MaterialTheme.colorScheme.primary, onClick = {})
+            ClickableText(
+                text = "Register",
+                color = MaterialTheme.colorScheme.primary,
+                onClick = {}
+            )
         }
     }
 }

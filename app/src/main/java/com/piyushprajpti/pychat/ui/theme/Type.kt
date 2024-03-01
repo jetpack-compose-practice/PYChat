@@ -42,7 +42,7 @@ val Typography = Typography(
     bodyMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.mulish_regular)),
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp
+        fontSize = 13.sp
     ),
 
     labelLarge = TextStyle(
