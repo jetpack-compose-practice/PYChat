@@ -6,10 +6,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class RegistrationViewModel @Inject constructor(
     private val authUseCase: AuthUseCase
-): ViewModel() {
-    fun login() {
-        authUseCase.login()
+): ViewModel()  {
+    fun register() {
+        authUseCase.register()
     }
 }

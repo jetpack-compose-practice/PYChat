@@ -10,7 +10,7 @@ class AuthRepositoryImpl(
        service.login()
     }
 
-    override fun signup() {
-        TODO("Not yet implemented")
+    override fun register() {
+        service.register()
     }
 }

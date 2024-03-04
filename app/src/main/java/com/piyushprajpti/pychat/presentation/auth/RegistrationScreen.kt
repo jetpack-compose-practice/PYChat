@@ -12,15 +12,36 @@ import androidx.compose.material.icons.filled.Password
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.PrimaryMargin
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
-fun RegistrationScreen() {
+fun RegistrationScreen(
+    viewModel: RegistrationViewModel = hiltViewModel()
+) {
+
+    val name = remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+    val username = remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+    val email = remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+    val password = remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+
     Column {
 
         BackButton(onClick = {})
@@ -43,32 +64,32 @@ fun RegistrationScreen() {
 
             InputField(
                 label = "Your Name",
-                value = "",
-                onValueChange = {},
+                value = name.value.text,
+                onValueChange = { name.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Text,
                 icon = Icons.Default.Person,
             )
 
             InputField(
                 label = "Username",
-                value = "",
-                onValueChange = {},
+                value = username.value.text,
+                onValueChange = { username.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Text,
                 icon = Icons.Default.Person,
             )
 
             InputField(
                 label = "Email Address",
-                value = "",
-                onValueChange = {},
+                value = email.value.text,
+                onValueChange = { email.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Email,
                 icon = Icons.Default.Email,
             )
 
             InputField(
                 label = "Password",
-                value = "",
-                onValueChange = {},
+                value = password.value.text,
+                onValueChange = { password.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Password,
                 icon = Icons.Default.Password,
             )
@@ -81,7 +102,10 @@ fun RegistrationScreen() {
 
             DescriptionText(text = "Already have an Account?")
 
-            ClickableText(text = "Login", color = MaterialTheme.colorScheme.primary, onClick = {})
+            ClickableText(
+                text = "Login",
+                color = MaterialTheme.colorScheme.primary,
+                onClick = { viewModel.register() })
         }
     }
 

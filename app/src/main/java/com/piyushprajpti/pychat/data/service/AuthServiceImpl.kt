@@ -6,7 +6,7 @@ class AuthServiceImpl: AuthService {
     override fun login() {
     }
 
-    override fun signup() {
-        TODO("Not yet implemented")
+    override fun register() {
+
     }
 }

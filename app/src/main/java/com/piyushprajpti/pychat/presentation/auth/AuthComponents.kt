@@ -109,22 +109,22 @@ fun DescriptionText(text: String) {
 
 @Composable
 fun InputField(
-    label: String,
-    value: String,
-    onValueChange: () -> Unit,
+        label: String,
+        value: String,
+        onValueChange: (String) -> Unit,
     keyboardType: KeyboardType,
     icon: ImageVector,
-) {
-    val isPasswordVisible = remember {
-        mutableStateOf(false)
-    }
+    ) {
+        val isPasswordVisible = remember {
+            mutableStateOf(false)
+        }
 
-    OutlinedTextField(
+        OutlinedTextField(
         label = { Text(text = label) },
 
         value = value,
 
-        onValueChange = { onValueChange() },
+        onValueChange = { onValueChange(it) },
 
         shape = RoundedCornerShape(10.dp),
 
@@ -164,7 +164,7 @@ fun InputField(
         },
 
         visualTransformation =
-        if (isPasswordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
+        if (isPasswordVisible.value) PasswordVisualTransformation() else VisualTransformation.None
 
 
     )

@@ -1,6 +1,5 @@
 package com.piyushprajpti.pychat.presentation.auth
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,21 +10,32 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Password
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.PrimaryMargin
-import com.piyushprajpti.pychat.ui.theme.PYChatTheme
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    viewModel: LoginViewModel = hiltViewModel()
+) {
+
+    val emailOrUsername = remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+
+    val password = remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+
     Column {
         BackButton(onClick = {})
 
@@ -48,16 +58,16 @@ fun LoginScreen() {
 
             InputField(
                 label = "Email or Username",
-                value = "",
-                onValueChange = {},
+                value = emailOrUsername.value.text,
+                onValueChange = { emailOrUsername.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Email,
                 icon = Icons.Default.Email,
             )
 
             InputField(
                 label = "Password",
-                value = "",
-                onValueChange = {},
+                value = password.value.text,
+                onValueChange = { password.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Password,
                 icon = Icons.Default.Password,
             )
@@ -80,22 +90,22 @@ fun LoginScreen() {
             ClickableText(
                 text = "Register",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = {}
+                onClick = { viewModel.login() }
             )
         }
     }
 }
 
-@Preview(
-    showSystemUi = true,
-    device = Devices.PIXEL_4,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
-@Composable
-fun PreviewWrapper2() {
-    PYChatTheme {
-        Surface(color = MaterialTheme.colorScheme.background) {
-            LoginScreen()
-        }
-    }
-}
+//@Preview(
+//    showSystemUi = true,
+//    device = Devices.PIXEL_4,
+//    uiMode = Configuration.UI_MODE_NIGHT_YES
+//)
+//@Composable
+//fun PreviewWrapper2() {
+//    PYChatTheme {
+//        Surface(color = MaterialTheme.colorScheme.background) {
+//            LoginScreen()
+//        }
+//    }
+//}

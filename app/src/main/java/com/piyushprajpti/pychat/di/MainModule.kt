@@ -6,7 +6,7 @@ import com.piyushprajpti.pychat.domain.repository.AuthRepository
 import com.piyushprajpti.pychat.domain.service.AuthService
 import com.piyushprajpti.pychat.domain.use_case.auth.AuthUseCase
 import com.piyushprajpti.pychat.domain.use_case.auth.Login
-import com.piyushprajpti.pychat.domain.use_case.auth.Signup
+import com.piyushprajpti.pychat.domain.use_case.auth.Register
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +22,7 @@ object MainModule {
     fun useCase(repository: AuthRepository): AuthUseCase {
         return AuthUseCase(
             login = Login(repository),
-            signup = Signup()
+            register = Register(authRepository = repository)
         )
     }
 
