@@ -25,7 +25,11 @@ import com.piyushprajpti.pychat.presentation.PrimaryMargin
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = hiltViewModel()
+    viewModel: LoginViewModel = hiltViewModel(),
+    onBackClick: () -> Unit,
+    onLoginClick: () -> Unit,
+    onResetPasswordClick: () -> Unit,
+    onRegisterClick: () -> Unit
 ) {
 
     val emailOrUsername = remember {
@@ -37,7 +41,7 @@ fun LoginScreen(
     }
 
     Column {
-        BackButton(onClick = {})
+        BackButton(onClick = {onBackClick()})
 
         Column(
             modifier = Modifier
@@ -77,11 +81,12 @@ fun LoginScreen(
                 color = MaterialTheme.colorScheme.secondary,
                 alignment = Alignment.CenterEnd,
                 textDecoration = TextDecoration.Underline,
-                onClick = {})
+                onClick = {onResetPasswordClick()}
+            )
 
             Spacer(modifier = Modifier.height(40.dp))
 
-            PrimaryActionButton(text = "Login", onClick = {})
+            PrimaryActionButton(text = "Login", onClick = {onLoginClick()})
 
             Spacer(modifier = Modifier.height(40.dp))
 
@@ -90,7 +95,10 @@ fun LoginScreen(
             ClickableText(
                 text = "Register",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = { viewModel.login() }
+                onClick = {
+                    viewModel.login()
+                    onRegisterClick()
+                }
             )
         }
     }

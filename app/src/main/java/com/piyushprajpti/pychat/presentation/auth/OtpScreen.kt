@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Password
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
@@ -15,9 +16,13 @@ import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.PrimaryMargin
 
 @Composable
-fun OtpScreen() {
+fun OtpScreen(
+    onBackClick: () -> Unit,
+    onVerifyClick: () -> Unit,
+    onLoginClick: () -> Unit
+) {
     Column {
-        BackButton(onClick = {})
+        BackButton(onClick = {onBackClick()})
 
         Column(
             modifier = Modifier
@@ -40,7 +45,17 @@ fun OtpScreen() {
 
             Spacer(modifier = Modifier.height(40.dp))
 
-            PrimaryActionButton(text = "Verify", onClick = {})
+            PrimaryActionButton(text = "Verify", onClick = {onVerifyClick()})
+
+            Spacer(modifier = Modifier.height(40.dp))
+
+            DescriptionText(text = "Remember your password?")
+
+            ClickableText(
+                text = "Login",
+                color = MaterialTheme.colorScheme.primary,
+                onClick = {onLoginClick()}
+            )
         }
     }
 }

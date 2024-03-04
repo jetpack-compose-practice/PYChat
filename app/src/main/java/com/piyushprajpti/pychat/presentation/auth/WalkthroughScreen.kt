@@ -1,6 +1,7 @@
 package com.piyushprajpti.pychat.presentation.auth
 
-import android.content.res.Configuration
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -12,21 +13,25 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.R
-import com.piyushprajpti.pychat.ui.theme.PYChatTheme
 
 @Composable
 fun WalkthroughScreen(
-//    viewModel: LoginViewModel = hiltViewModel()
+//    viewModel: LoginViewModel = hiltViewModel(),
+    onStartClick: () -> Unit
 ) {
+    val context = LocalContext.current
+    val intent = remember {
+        Intent(Intent.ACTION_VIEW, Uri.parse("https://todo-4406.web.app/"))
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -60,26 +65,26 @@ fun WalkthroughScreen(
             ClickableText(
                 text = "Terms & Privacy Policy",
                 color = MaterialTheme.colorScheme.secondary,
-                onClick = {})
+                onClick = { context.startActivity(intent) })
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            PrimaryActionButton(text = "Start Messaging", onClick = {})
+            PrimaryActionButton(text = "Start Messaging", onClick = { onStartClick() })
         }
     }
 }
 
-@Preview(
-    showBackground = true,
-    showSystemUi = true,
-    device = Devices.PIXEL_4,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
-@Composable
-fun PreviewWrapper1() {
-    PYChatTheme {
-        Surface(color = MaterialTheme.colorScheme.background) {
-            WalkthroughScreen()
-        }
-    }
-}
+//@Preview(
+//    showBackground = true,
+//    showSystemUi = true,
+//    device = Devices.PIXEL_4,
+//    uiMode = Configuration.UI_MODE_NIGHT_YES
+//)
+//@Composable
+//fun PreviewWrapper1() {
+//    PYChatTheme {
+//        Surface(color = MaterialTheme.colorScheme.background) {
+//            WalkthroughScreen()
+//        }
+//    }
+//}

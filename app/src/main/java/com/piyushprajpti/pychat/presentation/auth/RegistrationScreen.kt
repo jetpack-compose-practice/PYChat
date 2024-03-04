@@ -22,11 +22,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.PrimaryMargin
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun RegistrationScreen(
-    viewModel: RegistrationViewModel = hiltViewModel()
+    viewModel: RegistrationViewModel = hiltViewModel(),
+    onBackClick: () -> Unit,
+    onRegisterClick: () -> Unit,
+    onLoginClick: () -> Unit
 ) {
 
     val name = remember {
@@ -44,7 +46,7 @@ fun RegistrationScreen(
 
     Column {
 
-        BackButton(onClick = {})
+        BackButton(onClick = { onBackClick() })
 
         Column(
             modifier = Modifier
@@ -96,7 +98,7 @@ fun RegistrationScreen(
 
             Spacer(modifier = Modifier.height(40.dp))
 
-            PrimaryActionButton(text = "Register", onClick = {})
+            PrimaryActionButton(text = "Register", onClick = { onRegisterClick() })
 
             Spacer(modifier = Modifier.height(40.dp))
 
@@ -105,7 +107,11 @@ fun RegistrationScreen(
             ClickableText(
                 text = "Login",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = { viewModel.register() })
+                onClick = {
+                    viewModel.register()
+                    onLoginClick()
+                }
+            )
         }
     }
 

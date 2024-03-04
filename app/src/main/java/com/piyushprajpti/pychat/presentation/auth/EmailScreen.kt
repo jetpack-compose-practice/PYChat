@@ -16,9 +16,13 @@ import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.PrimaryMargin
 
 @Composable
-fun EmailScreen() {
+fun EmailScreen(
+    onBackClick: () -> Unit,
+    onSendEmailClick: () -> Unit,
+    onLoginClick: () -> Unit
+) {
     Column {
-        BackButton(onClick = {})
+        BackButton(onClick = {onBackClick()})
 
         Column(
             modifier = Modifier
@@ -40,7 +44,7 @@ fun EmailScreen() {
             )
             Spacer(modifier = Modifier.height(40.dp))
 
-            PrimaryActionButton(text = "Send Email", onClick = {})
+            PrimaryActionButton(text = "Send Email", onClick = {onSendEmailClick()})
 
             Spacer(modifier = Modifier.height(40.dp))
 
@@ -49,7 +53,7 @@ fun EmailScreen() {
             ClickableText(
                 text = "Login",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = {}
+                onClick = {onLoginClick()}
             )
         }
     }
