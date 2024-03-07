@@ -6,14 +6,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.presentation.BackButton
-import com.piyushprajpti.pychat.presentation.PrimaryMargin
+import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun EmailScreen(
@@ -27,7 +27,7 @@ fun EmailScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(PrimaryMargin)
+                .padding(DefaultMargin)
         ) {
             HeadlineText(text = "Enter your Email Address")
             Spacer(modifier = Modifier.height(5.dp))
@@ -40,7 +40,7 @@ fun EmailScreen(
                 value = "",
                 onValueChange = {},
                 keyboardType = KeyboardType.Email,
-                icon = Icons.Default.Email,
+                icon = Icons.Outlined.Email,
             )
             Spacer(modifier = Modifier.height(40.dp))
 

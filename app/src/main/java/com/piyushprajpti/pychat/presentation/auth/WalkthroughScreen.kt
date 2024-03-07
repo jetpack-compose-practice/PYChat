@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.R
+import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun WalkthroughScreen(
@@ -35,7 +36,7 @@ fun WalkthroughScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(12.dp),
+            .padding(DefaultMargin),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(

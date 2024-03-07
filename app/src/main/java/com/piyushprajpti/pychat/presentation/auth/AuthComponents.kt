@@ -9,8 +9,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.outlined.VisibilityOff
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -109,17 +109,17 @@ fun DescriptionText(text: String) {
 
 @Composable
 fun InputField(
-        label: String,
-        value: String,
-        onValueChange: (String) -> Unit,
+    label: String,
+    value: String,
+    onValueChange: (String) -> Unit,
     keyboardType: KeyboardType,
     icon: ImageVector,
-    ) {
-        val isPasswordVisible = remember {
-            mutableStateOf(false)
-        }
+) {
+    val isPasswordVisible = remember {
+        mutableStateOf(false)
+    }
 
-        OutlinedTextField(
+    OutlinedTextField(
         label = { Text(text = label) },
 
         value = value,
@@ -150,8 +150,8 @@ fun InputField(
         trailingIcon = {
             if (keyboardType == KeyboardType.Password) {
                 val eyeIcon =
-                    if (isPasswordVisible.value) Icons.Default.Visibility
-                    else Icons.Default.VisibilityOff
+                    if (isPasswordVisible.value) Icons.Outlined.Visibility
+                    else Icons.Outlined.VisibilityOff
 
                 Icon(
                     imageVector = eyeIcon,
@@ -164,7 +164,11 @@ fun InputField(
         },
 
         visualTransformation =
-        if (isPasswordVisible.value) PasswordVisualTransformation() else VisualTransformation.None
+        if (keyboardType == KeyboardType.Password) {
+            if (isPasswordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
+        } else {
+            VisualTransformation.None
+        }
 
 
     )

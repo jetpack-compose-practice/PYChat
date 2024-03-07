@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import com.piyushprajpti.pychat.presentation.auth.OtpScreen
 import com.piyushprajpti.pychat.presentation.auth.RegistrationScreen
+import com.piyushprajpti.pychat.presentation.home.HomeScreen
 import com.piyushprajpti.pychat.ui.theme.PYChatTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PYChatTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    PYChatApp()
+                    HomeScreen()
                 }
             }
         }

@@ -6,14 +6,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Password
+import androidx.compose.material.icons.outlined.Password
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.presentation.BackButton
-import com.piyushprajpti.pychat.presentation.PrimaryMargin
+import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun OtpScreen(
@@ -27,7 +27,7 @@ fun OtpScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(PrimaryMargin)
+                .padding(DefaultMargin)
         ) {
             HeadlineText(text = "Verify OTP")
             Spacer(modifier = Modifier.height(5.dp))
@@ -40,7 +40,7 @@ fun OtpScreen(
                 value = "",
                 onValueChange = {},
                 keyboardType = KeyboardType.Number,
-                icon = Icons.Default.Password
+                icon = Icons.Outlined.Password
             )
 
             Spacer(modifier = Modifier.height(40.dp))

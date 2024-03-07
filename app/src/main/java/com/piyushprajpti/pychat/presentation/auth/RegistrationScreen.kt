@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Password
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.Password
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -21,7 +21,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.piyushprajpti.pychat.presentation.BackButton
-import com.piyushprajpti.pychat.presentation.PrimaryMargin
+import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun RegistrationScreen(
@@ -51,7 +51,7 @@ fun RegistrationScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(PrimaryMargin),
+                .padding(DefaultMargin),
         ) {
             Column(
                 modifier = Modifier
@@ -69,7 +69,7 @@ fun RegistrationScreen(
                 value = name.value.text,
                 onValueChange = { name.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Text,
-                icon = Icons.Default.Person,
+                icon = Icons.Outlined.Person,
             )
 
             InputField(
@@ -77,7 +77,7 @@ fun RegistrationScreen(
                 value = username.value.text,
                 onValueChange = { username.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Text,
-                icon = Icons.Default.Person,
+                icon = Icons.Outlined.Person,
             )
 
             InputField(
@@ -85,7 +85,7 @@ fun RegistrationScreen(
                 value = email.value.text,
                 onValueChange = { email.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Email,
-                icon = Icons.Default.Email,
+                icon = Icons.Outlined.Email,
             )
 
             InputField(
@@ -93,7 +93,7 @@ fun RegistrationScreen(
                 value = password.value.text,
                 onValueChange = { password.value = TextFieldValue(it) },
                 keyboardType = KeyboardType.Password,
-                icon = Icons.Default.Password,
+                icon = Icons.Outlined.Password,
             )
 
             Spacer(modifier = Modifier.height(40.dp))
