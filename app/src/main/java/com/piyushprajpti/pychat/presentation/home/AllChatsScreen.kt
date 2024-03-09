@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -58,8 +60,9 @@ fun AllChatsScreen() {
                 ChatCard(
                     profilePhoto = R.drawable.me,
                     name = "Piyush Prajapati",
+                    messageStatus = Icons.Default.Check,
                     latestMessage = "hello world!",
-                    messageDate = "Today",
+                    messageDate = "02:35 AM",
                     messageCount = 5
                 )
             }
@@ -68,9 +71,10 @@ fun AllChatsScreen() {
                 ChatCard(
                     profilePhoto = R.drawable.me,
                     name = "Piyush Prajapati",
-                    latestMessage = "hello world!sdgshsdfa gfasgs hfghdsfhfd shdh sdhdsfhdshdfhdf",
+                    messageStatus = Icons.Default.Check,
+                    latestMessage = "hello world!sdgshsdfa gfadgsxfhfxhdhthrdhdtrhrdthrtfhdf",
                     messageDate = "Yesterday",
-                    messageCount = 5
+                    messageCount = 1
                 )
             }
 
@@ -78,9 +82,10 @@ fun AllChatsScreen() {
                 ChatCard(
                     profilePhoto = R.drawable.me,
                     name = "Piyush Prajapati",
+                    messageStatus = Icons.Default.Checklist,
                     latestMessage = "hello world!",
                     messageDate = "18 feb",
-                    messageCount = 5
+                    messageCount = 0
                 )
             }
         }
