@@ -48,18 +48,18 @@ val Typography = Typography(
     labelLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.mulish_regular)),
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontSize = 13.sp
     ),
 
     labelMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.mulish_semibold)),
         fontWeight = FontWeight.SemiBold,
-        fontSize = 10.sp
+        fontSize = 12.sp
     ),
 
     labelSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.mulish_regular)),
         fontWeight = FontWeight.Normal,
-        fontSize = 10.sp
+        fontSize = 11.sp
     )
 )

@@ -17,3 +17,8 @@ val TextFieldBackgroundDT = Color(0XFF152033)
 
 val TextFieldLabelLT = Color(0xFFADB5BD)
 val TextFieldLabelDT = Color(0XFFF7F7FC)
+
+val LatestMessageGray = Color(0xFFADB5BD)
+
+val MessageCountText = Color(0xFF00166B)
+val MessageCountBackground = Color(0xFFD2D5F9)

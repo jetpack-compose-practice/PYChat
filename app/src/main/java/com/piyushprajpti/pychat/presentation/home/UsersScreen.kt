@@ -21,7 +21,7 @@ import com.piyushprajpti.pychat.presentation.DefaultMargin
 import com.piyushprajpti.pychat.ui.theme.Typography
 
 @Composable
-fun ContactsScreen() {
+fun UsersScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()

@@ -2,11 +2,11 @@ package com.piyushprajpti.pychat.presentation.home
 
 import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.ChatBubble
-import androidx.compose.material.icons.filled.Contacts
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material.icons.outlined.ChatBubbleOutline
-import androidx.compose.material.icons.outlined.Contacts
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -43,9 +43,9 @@ fun HomeScreen() {
 
     val iconsList = listOf(
         BottomNavigationItem(
-            label = "Contacts",
-            selectedIcon = Icons.Filled.Contacts,
-            unselectedIcon = Icons.Outlined.Contacts
+            label = "Users",
+            selectedIcon = Icons.Filled.AccountBox,
+            unselectedIcon = Icons.Outlined.AccountBox
         ),
         BottomNavigationItem(
             label = "Chats",
@@ -110,7 +110,7 @@ fun HomeScreen() {
         content = {
             when (selectedIndex) {
                 0 -> {
-                    ContactsScreen()
+                    UsersScreen()
                 }
 
                 1 -> {
