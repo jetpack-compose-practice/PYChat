@@ -35,7 +35,9 @@ data class BottomNavigationItem(
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onChatCardClick: () -> Unit
+) {
 
     var selectedIndex by remember {
         mutableIntStateOf(1)
@@ -114,7 +116,7 @@ fun HomeScreen() {
                 }
 
                 1 -> {
-                    AllChatsScreen()
+                    AllChatsScreen(onChatCardClick = {onChatCardClick()})
                 }
 
                 2 -> {

@@ -1,7 +1,7 @@
 package com.piyushprajpti.pychat.presentation.home
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,23 +12,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material3.Badge
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.piyushprajpti.pychat.R
 import com.piyushprajpti.pychat.ui.theme.LatestMessageGray
 import com.piyushprajpti.pychat.ui.theme.MessageCountBackground
 import com.piyushprajpti.pychat.ui.theme.MessageCountText
@@ -41,10 +37,12 @@ fun ChatCard(
     messageStatus: ImageVector,
     latestMessage: String,
     messageDate: String,
-    messageCount: Int
+    messageCount: Int,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
+            .clickable { onClick() }
             .fillMaxWidth()
             .padding(vertical = 2.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -58,30 +56,6 @@ fun ChatCard(
                 .height(50.dp)
                 .clip(CircleShape)
         )
-
-//        Column(
-//            verticalArrangement = Arrangement.SpaceAround,
-//            modifier = Modifier
-//                .weight(1f)
-//        ) {
-//
-//
-//            Spacer(modifier = Modifier.height(4.dp))
-//
-//
-//        }
-//
-//        Column(
-//            verticalArrangement = Arrangement.SpaceBetween,
-//            horizontalAlignment = Alignment.CenterHorizontally,
-//            modifier = Modifier.width(60.dp)
-//        ) {
-//
-//
-//            Spacer(modifier = Modifier.height(4.dp))
-//
-//
-//        }
 
         Column(
             verticalArrangement = Arrangement.SpaceBetween
@@ -120,7 +94,9 @@ fun ChatCard(
                 Icon(
                     imageVector = messageStatus,
                     contentDescription = "message status",
-                    modifier = Modifier.padding(end = 5.dp).size(15.dp)
+                    modifier = Modifier
+                        .padding(end = 5.dp)
+                        .size(15.dp)
                 )
 
                 Text(
@@ -148,4 +124,22 @@ fun ChatCard(
             }
         }
     }
+}
+
+@Composable
+fun InputField() {
+    OutlinedTextField(
+        value = "",
+        onValueChange = {}
+    )
+}
+
+@Composable
+fun SentMessageBox() {
+
+}
+
+@Composable
+fun ReceivedMessageBox() {
+
 }

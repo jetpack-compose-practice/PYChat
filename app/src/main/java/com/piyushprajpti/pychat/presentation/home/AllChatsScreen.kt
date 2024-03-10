@@ -27,7 +27,9 @@ import com.piyushprajpti.pychat.presentation.DefaultMargin
 import com.piyushprajpti.pychat.ui.theme.Typography
 
 @Composable
-fun AllChatsScreen() {
+fun AllChatsScreen(
+    onChatCardClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -63,7 +65,8 @@ fun AllChatsScreen() {
                     messageStatus = Icons.Default.Check,
                     latestMessage = "hello world!",
                     messageDate = "02:35 AM",
-                    messageCount = 5
+                    messageCount = 5,
+                    onClick = {onChatCardClick()}
                 )
             }
 
@@ -74,7 +77,8 @@ fun AllChatsScreen() {
                     messageStatus = Icons.Default.Check,
                     latestMessage = "hello world!sdgshsdfa gfadgsxfhfxhdhthrdhdtrhrdthrtfhdf",
                     messageDate = "Yesterday",
-                    messageCount = 1
+                    messageCount = 1,
+                    onClick = {onChatCardClick()}
                 )
             }
 
@@ -85,7 +89,8 @@ fun AllChatsScreen() {
                     messageStatus = Icons.Default.Checklist,
                     latestMessage = "hello world!",
                     messageDate = "18 feb",
-                    messageCount = 0
+                    messageCount = 0,
+                    onClick = {onChatCardClick()}
                 )
             }
         }
