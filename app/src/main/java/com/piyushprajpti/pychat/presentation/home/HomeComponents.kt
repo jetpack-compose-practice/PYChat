@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Badge
@@ -27,18 +27,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color.Companion.Green
-import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.R
 import com.piyushprajpti.pychat.presentation.DefaultMargin
+import com.piyushprajpti.pychat.ui.theme.ChatBarsDT
+import com.piyushprajpti.pychat.ui.theme.ChatBarsLT
 import com.piyushprajpti.pychat.ui.theme.DividerDT
 import com.piyushprajpti.pychat.ui.theme.DividerLT
 import com.piyushprajpti.pychat.ui.theme.LatestMessageGray
 import com.piyushprajpti.pychat.ui.theme.MessageCountBackground
 import com.piyushprajpti.pychat.ui.theme.MessageCountText
+import com.piyushprajpti.pychat.ui.theme.TextDT
 import com.piyushprajpti.pychat.ui.theme.Typography
 
 @Composable
@@ -145,10 +147,9 @@ fun UserInfoCard(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 1.dp, horizontal = DefaultMargin)
-        ,
+            .padding(vertical = 1.dp, horizontal = DefaultMargin),
         verticalAlignment = Alignment.CenterVertically,
-        ) {
+    ) {
         Image(
             painter = painterResource(id = R.drawable.me),
             contentDescription = "Profile photo",
@@ -161,8 +162,7 @@ fun UserInfoCard(
         Spacer(modifier = Modifier.width(10.dp))
 
         Column(
-            modifier = Modifier.fillMaxSize()
-            ,
+            modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
@@ -181,13 +181,88 @@ fun UserInfoCard(
 }
 
 @Composable
-fun SentMessageBox() {
+fun SentMessageBox(
+    message: String,
+    messageDate: String
+) {
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+        Row(
+            modifier = Modifier
+                .background(
+                    color = MaterialTheme.colorScheme.primary,
+                    shape = RoundedCornerShape(
+                        topStart = 12.dp,
+                        topEnd = 12.dp,
+                        bottomStart = 12.dp,
+                        bottomEnd = 0.dp
+                    )
+                )
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(
 
+            ) {
+                Text(
+                    text = message,
+                    style = Typography.bodyMedium,
+                    color = TextDT
+                )
+
+                Spacer(modifier = Modifier.height(5.dp))
+
+                Text(
+                    text = messageDate,
+                    style = Typography.labelSmall,
+                    color = LatestMessageGray,
+                    textAlign = TextAlign.Right,
+                    modifier = Modifier.align(Alignment.End)
+                )
+            }
+        }
+    }
 }
 
 @Composable
-fun ReceivedMessageBox() {
+fun ReceivedMessageBox(
+    message: String,
+    messageDate: String
+) {
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) {
+        Row(
+            modifier = Modifier
+                .background(
+                    color = if (isSystemInDarkTheme()) ChatBarsDT else ChatBarsLT,
+                    shape = RoundedCornerShape(
+                        topStart = 12.dp,
+                        topEnd = 12.dp,
+                        bottomStart = 0.dp,
+                        bottomEnd = 12.dp
+                    )
+                )
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(
 
+            ) {
+                Text(
+                    text = message,
+                    style = Typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+
+                Spacer(modifier = Modifier.height(5.dp))
+                
+                Text(
+                    text = messageDate,
+                    style = Typography.labelSmall,
+                    color = LatestMessageGray,
+                    textAlign = TextAlign.Right
+                )
+            }
+        }
+    }
 }
 
 @Composable

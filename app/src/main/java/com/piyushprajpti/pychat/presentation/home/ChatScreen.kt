@@ -2,11 +2,11 @@ package com.piyushprajpti.pychat.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
@@ -31,6 +31,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.piyushprajpti.pychat.presentation.BackButton
+import com.piyushprajpti.pychat.presentation.DefaultMargin
 import com.piyushprajpti.pychat.ui.theme.ChatBackgroundDT
 import com.piyushprajpti.pychat.ui.theme.ChatBackgroundLT
 import com.piyushprajpti.pychat.ui.theme.ChatBarsDT
@@ -75,9 +76,9 @@ fun ChatScreen(
         bottomBar = {
 
             BottomAppBar(
+                containerColor = if (isSystemInDarkTheme()) ChatBarsDT else ChatBarsLT,
                 modifier = Modifier
-                    .padding(start = 5.dp, top = 8.dp, bottom = 8.dp),
-                containerColor = if (isSystemInDarkTheme()) ChatBarsDT else ChatBarsLT
+                    .padding( top = 8.dp, bottom = 8.dp),
             ) {
 
                 TextField(
@@ -108,13 +109,52 @@ fun ChatScreen(
         content = {
             LazyColumn(
                 modifier = Modifier
-                    .padding(it)
+                    .fillMaxSize()
                     .background(if (isSystemInDarkTheme()) ChatBackgroundDT else ChatBackgroundLT)
+                    .padding(it)
+                    .padding(horizontal = DefaultMargin),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                contentPadding = PaddingValues(vertical = 10.dp)
             ) {
-                for (i in 1..100) {
-                    item {
-                        Text(text = i.toString(), modifier = Modifier.fillMaxWidth())
-                    }
+                item {
+                    SentMessageBox(message = "Hi there dsfads dsfasdfasdfsd", messageDate = "06:49 PM")
+                }
+
+                item {
+                    ReceivedMessageBox(
+                        message = "yes, nice to talk with you",
+                        messageDate = "06:55 PM"
+                    )
+                }
+                item {
+                    SentMessageBox(message = "Hi there", messageDate = "06:49 PM")
+                }
+
+                item {
+                    ReceivedMessageBox(
+                        message = "yes, nice to talk with you",
+                        messageDate = "06:55 PM"
+                    )
+                }
+                item {
+                    SentMessageBox(message = "Hi there", messageDate = "06:49 PM")
+                }
+
+                item {
+                    ReceivedMessageBox(
+                        message = "yes, sd",
+                        messageDate = "06:55 PM"
+                    )
+                }
+                item {
+                    SentMessageBox(message = "Hi there sjkadfhjdskfjksadhjksdahfjksdhfsdjk sdjkfh sadkjlfh sdakjfhsdjk fsjkhf sjdfh sdkljfhsdk lafhsadkljf sdkjhf aksjdfhsjkda hfsakdjl", messageDate = "06:49 PM")
+                }
+
+                item {
+                    ReceivedMessageBox(
+                        message = "yes, nice to talk with you",
+                        messageDate = "06:55 PM"
+                    )
                 }
             }
         }
