@@ -76,7 +76,10 @@ fun PYChatApp() {
             }
 
             composable(route = Screen.ChatScreen.route) {
-                ChatScreen(name = "Piyush Prajapati")
+                ChatScreen(
+                    name = "Piyush Prajapati",
+                    onBackClick = { navController.popBackStack() }
+                )
             }
         }
     }

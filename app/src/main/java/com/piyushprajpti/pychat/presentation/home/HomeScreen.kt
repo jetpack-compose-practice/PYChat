@@ -116,7 +116,7 @@ fun HomeScreen(
                 }
 
                 1 -> {
-                    AllChatsScreen(onChatCardClick = {onChatCardClick()})
+                    AllChatsScreen(onChatCardClick = { onChatCardClick() })
                 }
 
                 2 -> {

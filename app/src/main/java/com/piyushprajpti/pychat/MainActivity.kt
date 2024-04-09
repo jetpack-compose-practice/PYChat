@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PYChatTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    ChatScreen("Piyush Prajapati")
+                   PYChatApp()
                 }
             }
         }

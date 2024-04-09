@@ -62,7 +62,6 @@ fun AllChatsScreen(
                 ChatCard(
                     profilePhoto = R.drawable.me,
                     name = "Piyush Prajapati",
-                    messageStatus = Icons.Default.Check,
                     latestMessage = "hello world!",
                     messageDate = "02:35 AM",
                     messageCount = 5,
@@ -74,7 +73,6 @@ fun AllChatsScreen(
                 ChatCard(
                     profilePhoto = R.drawable.me,
                     name = "Piyush Prajapati",
-                    messageStatus = Icons.Default.Check,
                     latestMessage = "hello world!sdgshsdfa gfadgsxfhfxhdhthrdhdtrhrdthrtfhdf",
                     messageDate = "Yesterday",
                     messageCount = 1,
@@ -86,7 +84,6 @@ fun AllChatsScreen(
                 ChatCard(
                     profilePhoto = R.drawable.me,
                     name = "Piyush Prajapati",
-                    messageStatus = Icons.Default.Checklist,
                     latestMessage = "hello world!",
                     messageDate = "18 feb",
                     messageCount = 0,

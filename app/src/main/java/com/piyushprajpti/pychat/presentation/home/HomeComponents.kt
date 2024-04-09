@@ -34,7 +34,7 @@ import com.piyushprajpti.pychat.ui.theme.Typography
 fun ChatCard(
     profilePhoto: Int,
     name: String,
-    messageStatus: ImageVector,
+//    messageStatus: ImageVector,
     latestMessage: String,
     messageDate: String,
     messageCount: Int,
@@ -91,13 +91,13 @@ fun ChatCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(
-                    imageVector = messageStatus,
-                    contentDescription = "message status",
-                    modifier = Modifier
-                        .padding(end = 5.dp)
-                        .size(15.dp)
-                )
+//                Icon(
+//                    imageVector = messageStatus,
+//                    contentDescription = "message status",
+//                    modifier = Modifier
+//                        .padding(end = 5.dp)
+//                        .size(15.dp)
+//                )
 
                 Text(
                     modifier = Modifier.weight(.8f),

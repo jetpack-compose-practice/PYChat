@@ -22,3 +22,9 @@ val LatestMessageGray = Color(0xFFADB5BD)
 
 val MessageCountText = Color(0xFF00166B)
 val MessageCountBackground = Color(0xFFD2D5F9)
+
+val ChatBackgroundLT = Color(0xFFF7F7FC)
+val ChatBackgroundDT = Color(0xFF152033)
+
+val ChatBarsLT = Color(0xFFFFFFFF)
+val ChatBarsDT = Color(0xFF0F1828)
