@@ -60,6 +60,6 @@ val Typography = Typography(
     labelSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.mulish_regular)),
         fontWeight = FontWeight.Normal,
-        fontSize = 11.sp
+        fontSize = 10.sp
     )
 )
