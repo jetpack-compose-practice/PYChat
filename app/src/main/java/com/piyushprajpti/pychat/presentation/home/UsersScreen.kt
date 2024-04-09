@@ -3,10 +3,12 @@ package com.piyushprajpti.pychat.presentation.home
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
@@ -25,85 +27,29 @@ fun UsersScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(DefaultMargin)
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(top = 7.dp, bottom = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(text = "Contacts", style = Typography.titleLarge)
+        CommonTopBar(pageName = "Users")
 
-            Icon(
-                imageVector = Icons.Outlined.Search,
-                contentDescription = "Search",
-                modifier = Modifier
-                    .clickable { }
-                    .clip(CircleShape)
-            )
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            contentPadding = PaddingValues(vertical = 10.dp)
+        ) {
+            item {
+                UserInfoCard(name = "Piyush Prajapati", userName = "@rj02piyush")
+            }
+            item {
+                UserInfoCard(name = "Gaurav Saini", userName = "@gsaini")
+            }
+            item {
+                UserInfoCard(name = "Piyush Prajapati", userName = "@rj02piyush")
+            }
+            item {
+                UserInfoCard(name = "Gaurav Saini", userName = "@gsaini")
+            }
+            item {
+                UserInfoCard(name = "Piyush Prajapati", userName = "@rj02piyush")
+            }
         }
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
-        Text(text = "Something")
     }
 }

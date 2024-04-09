@@ -28,3 +28,6 @@ val ChatBackgroundDT = Color(0xFF152033)
 
 val ChatBarsLT = Color(0xFFFFFFFF)
 val ChatBarsDT = Color(0xFF0F1828)
+
+val DividerLT = Color(0xFFEEEEEE)
+val DividerDT = Color(0xFF202631)

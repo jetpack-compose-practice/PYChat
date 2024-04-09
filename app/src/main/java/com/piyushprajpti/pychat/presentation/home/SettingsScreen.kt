@@ -23,22 +23,9 @@ import com.piyushprajpti.pychat.ui.theme.Typography
 @Composable
 fun SettingsScreen() {
     Column(
-        modifier = Modifier.fillMaxSize().padding(DefaultMargin)
+        modifier = Modifier
+            .fillMaxSize()
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(top = 7.dp, bottom = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(text = "Settings", style = Typography.titleLarge)
-
-            Icon(
-                imageVector = Icons.Outlined.Search,
-                contentDescription = "Search",
-                modifier = Modifier
-                    .clickable { }
-                    .clip(CircleShape)
-            )
-        }
+        CommonTopBar(pageName = "Settings")
     }
 }

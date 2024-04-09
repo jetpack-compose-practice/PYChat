@@ -21,13 +21,13 @@ fun PYChatApp() {
 
     NavHost(
         navController = navController,
-        startDestination = "home_graph",
+        startDestination = Screen.HomeGraph.route,
         enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
         exitTransition = { slideOutHorizontally(targetOffsetX = { it }) }
     ) {
 
         // 1. auth graph
-        navigation(route = "auth_graph", startDestination = Screen.WalkthroughScreen.route) {
+        navigation(route = Screen.AuthGraph.route, startDestination = Screen.WalkthroughScreen.route) {
 
             composable(route = Screen.WalkthroughScreen.route) {
                 WalkthroughScreen(
@@ -70,7 +70,7 @@ fun PYChatApp() {
         }
 
         // 2. home graph
-        navigation(route = "home_graph", startDestination = Screen.HomeScreen.route) {
+        navigation(route = Screen.HomeGraph.route, startDestination = Screen.HomeScreen.route) {
             composable(route = Screen.HomeScreen.route) {
                 HomeScreen(onChatCardClick = { navController.navigate(Screen.ChatScreen.route) })
             }
