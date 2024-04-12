@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "952216690501",
+    "project_id": "pychat-6",
+    "storage_bucket": "pychat-6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952216690501:android:138cfc7660c32bfa59282c",
+        "android_client_info": {
+          "package_name": "com.piyushprajpti.pychat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9I2EscB_ZmotpoMsAyJ3_Kc4Go01oZXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
