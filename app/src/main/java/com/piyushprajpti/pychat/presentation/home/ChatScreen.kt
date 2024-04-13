@@ -191,8 +191,7 @@ fun ChatScreen(
             containerColor = if (isSystemInDarkTheme()) ChatBarsDT else ChatBarsLT,
             modifier = Modifier
                 .padding(top = 8.dp, bottom = 8.dp, start = 8.dp)
-                .align(Alignment.End)
-            ,
+                .align(Alignment.End),
         ) {
 
             TextField(

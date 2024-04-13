@@ -21,7 +21,7 @@ fun PYChatApp() {
 
     NavHost(
         navController = navController,
-        startDestination = Screen.HomeGraph.route,
+        startDestination = Screen.AuthGraph.route,
         enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
         exitTransition = { slideOutHorizontally(targetOffsetX = { it }) }
     ) {
