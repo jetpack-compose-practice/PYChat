@@ -25,7 +25,7 @@ import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = hiltViewModel(),
+//    viewModel: AuthViewModel = hiltViewModel(),
     onBackClick: () -> Unit,
     onLoginClick: () -> Unit,
     onResetPasswordClick: () -> Unit,
@@ -96,7 +96,7 @@ fun LoginScreen(
                 text = "Register",
                 color = MaterialTheme.colorScheme.primary,
                 onClick = {
-                    viewModel.login()
+//                    viewModel.login()
                     onRegisterClick()
                 }
             )
