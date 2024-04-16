@@ -1,5 +1,6 @@
 package com.piyushprajpti.pychat.di
 
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.piyushprajpti.pychat.data.repository.AuthRepositoryImpl
 import com.piyushprajpti.pychat.data.service.AuthServiceImpl
@@ -23,7 +24,7 @@ object AuthModule {
 
     @Singleton
     @Provides
-    fun providesAuthService(db: FirebaseFirestore): AuthService {
-        return AuthServiceImpl(db)
+    fun providesAuthService(usersCollection: CollectionReference): AuthService {
+        return AuthServiceImpl(usersCollection)
     }
 }

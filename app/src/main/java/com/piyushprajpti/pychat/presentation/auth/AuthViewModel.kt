@@ -20,13 +20,13 @@ class AuthViewModel @Inject constructor(
         callBack: () -> Unit
     ) {
         viewModelScope.launch {
-            repository.register(name, username, email, password)
+            repository.register(name, username, email, password, callBack)
         }
     }
 
-    fun onLogin(email: String, password: String, callBack: () -> Unit) {
+    fun onLogin(emailOrUsername: String, password: String, callBack: () -> Unit) {
         viewModelScope.launch {
-            repository.login(email, password)
+            repository.login(emailOrUsername, password, callBack)
         }
     }
 

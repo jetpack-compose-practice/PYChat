@@ -25,9 +25,9 @@ import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun LoginScreen(
-//    viewModel: AuthViewModel = hiltViewModel(),
+    viewModel: AuthViewModel = hiltViewModel(),
     onBackClick: () -> Unit,
-    onLoginClick: () -> Unit,
+    onLoginSuccess: () -> Unit,
     onResetPasswordClick: () -> Unit,
     onRegisterClick: () -> Unit
 ) {
@@ -38,6 +38,16 @@ fun LoginScreen(
 
     val password = remember {
         mutableStateOf(TextFieldValue(""))
+    }
+
+    fun onLoginClick() {
+        viewModel.onLogin(
+            emailOrUsername = emailOrUsername.value.text,
+            password = password.value.text,
+            callBack = {
+                onLoginSuccess()
+            }
+        )
     }
 
     Column {
@@ -84,7 +94,11 @@ fun LoginScreen(
                 onClick = { onResetPasswordClick() }
             )
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(4.dp))
+
+            ErrorField(errorMessage = "")
+
+            Spacer(modifier = Modifier.height(35.dp))
 
             PrimaryActionButton(text = "Login", onClick = { onLoginClick() })
 
@@ -95,25 +109,8 @@ fun LoginScreen(
             ClickableText(
                 text = "Register",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = {
-//                    viewModel.login()
-                    onRegisterClick()
-                }
+                onClick = { onRegisterClick() }
             )
         }
     }
 }
-
-//@Preview(
-//    showSystemUi = true,
-//    device = Devices.PIXEL_4,
-//    uiMode = Configuration.UI_MODE_NIGHT_YES
-//)
-//@Composable
-//fun PreviewWrapper2() {
-//    PYChatTheme {
-//        Surface(color = MaterialTheme.colorScheme.background) {
-//            LoginScreen()
-//        }
-//    }
-//}

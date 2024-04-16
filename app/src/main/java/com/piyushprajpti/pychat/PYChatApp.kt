@@ -21,7 +21,7 @@ fun PYChatApp() {
 
     NavHost(
         navController = navController,
-        startDestination = Screen.HomeGraph.route,
+        startDestination = Screen.AuthGraph.route,
         enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
         exitTransition = { slideOutHorizontally(targetOffsetX = { it }) }
     ) {
@@ -38,7 +38,7 @@ fun PYChatApp() {
             composable(route = Screen.RegistrationScreen.route) {
                 RegistrationScreen(
                     onBackClick = { navController.popBackStack() },
-                    onRegisterClick = { navController.navigate(Screen.OtpScreen.route) },
+                    onRegisterSuccess = { navController.navigate(Screen.OtpScreen.route) },
                     onLoginClick = { navController.navigate(Screen.LoginScreen.route) }
                 )
             }
@@ -46,7 +46,7 @@ fun PYChatApp() {
             composable(route = Screen.LoginScreen.route) {
                 LoginScreen(
                     onBackClick = { navController.popBackStack() },
-                    onLoginClick = { navController.navigate(Screen.HomeScreen.route) },
+                    onLoginSuccess = { navController.navigate(Screen.HomeScreen.route) },
                     onResetPasswordClick = { navController.navigate(Screen.EmailScreen.route) },
                     onRegisterClick = { navController.navigate(Screen.RegistrationScreen.route) }
                 )

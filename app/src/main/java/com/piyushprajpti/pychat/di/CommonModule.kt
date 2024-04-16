@@ -3,6 +3,7 @@ package com.piyushprajpti.pychat.di
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.piyushprajpti.pychat.data.repository.CommonRepositoryImpl
@@ -21,8 +22,8 @@ object CommonModule {
 
     @Singleton
     @Provides
-    fun providesDB() : FirebaseFirestore {
-        return Firebase.firestore
+    fun providesDB() : CollectionReference {
+        return Firebase.firestore.collection("users")
     }
 
     @Singleton
@@ -39,8 +40,8 @@ object CommonModule {
 
     @Singleton
     @Provides
-    fun providesCommonService(db: FirebaseFirestore): CommonService {
-        return CommonServiceImpl(db)
+    fun providesCommonService(usersCollection: CollectionReference): CommonService {
+        return CommonServiceImpl(usersCollection)
     }
 
 }

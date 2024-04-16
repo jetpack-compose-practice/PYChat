@@ -25,9 +25,9 @@ import com.piyushprajpti.pychat.presentation.DefaultMargin
 
 @Composable
 fun RegistrationScreen(
-//    viewModel: AuthViewModel = hiltViewModel(),
+    viewModel: AuthViewModel = hiltViewModel(),
     onBackClick: () -> Unit,
-    onRegisterClick: () -> Unit,
+    onRegisterSuccess: () -> Unit,
     onLoginClick: () -> Unit
 ) {
 
@@ -42,6 +42,18 @@ fun RegistrationScreen(
     }
     val password = remember {
         mutableStateOf(TextFieldValue(""))
+    }
+
+    fun onRegisterClick() {
+        viewModel.onRegister(
+            name = name.value.text,
+            username = username.value.text,
+            email = email.value.text,
+            password = password.value.text,
+            callBack = {
+                onRegisterSuccess()
+            }
+        )
     }
 
     Column {
@@ -96,7 +108,11 @@ fun RegistrationScreen(
                 icon = Icons.Outlined.Password,
             )
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(4.dp))
+
+            ErrorField(errorMessage = "")
+
+            Spacer(modifier = Modifier.height(35.dp))
 
             PrimaryActionButton(text = "Register", onClick = { onRegisterClick() })
 
@@ -107,10 +123,7 @@ fun RegistrationScreen(
             ClickableText(
                 text = "Login",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = {
-//                    viewModel.register()
-                    onLoginClick()
-                }
+                onClick = { onLoginClick() }
             )
         }
     }

@@ -3,7 +3,9 @@ package com.piyushprajpti.pychat.presentation.auth
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -172,4 +174,16 @@ fun InputField(
 
 
     )
+}
+
+@Composable
+fun ErrorField(errorMessage: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(13.dp)
+            .padding(horizontal = 5.dp)
+    ) {
+        Text(text = errorMessage, style = Typography.labelMedium, color = Color.Red)
+    }
 }
