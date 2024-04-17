@@ -35,16 +35,12 @@ class AuthServiceImpl(
         ).get()
     }
 
-    override suspend fun registerDetailsChecker(
-        username: String,
-        email: String
-    ): Task<QuerySnapshot> {
-        return usersCollection.where(
-            Filter.and(
-                Filter.equalTo("username", username),
-                Filter.equalTo("email", email)
-            )
-        ).get()
+    override suspend fun usernameChecker(username: String): Task<QuerySnapshot> {
+        return usersCollection.whereEqualTo("username", username).get()
+    }
+
+    override suspend fun emailChecker(email: String): Task<QuerySnapshot> {
+        return usersCollection.whereEqualTo("email", email).get()
     }
 
     override suspend fun loginDetailsChecker(emailOrUsername: String): Task<QuerySnapshot> {

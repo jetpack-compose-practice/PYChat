@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.DefaultMargin
+import com.piyushprajpti.pychat.util.Response
 
 @Composable
 fun LoginScreen(
@@ -35,9 +36,11 @@ fun LoginScreen(
     val emailOrUsername = remember {
         mutableStateOf(TextFieldValue(""))
     }
-
     val password = remember {
         mutableStateOf(TextFieldValue(""))
+    }
+    val errorMessage = remember {
+        mutableStateOf("")
     }
 
     fun onLoginClick() {
@@ -45,7 +48,15 @@ fun LoginScreen(
             emailOrUsername = emailOrUsername.value.text,
             password = password.value.text,
             callBack = {
-                onLoginSuccess()
+                when (it) {
+                    is Response.Success -> {
+                        onLoginSuccess()
+                    }
+
+                    is Response.Error -> {
+                        errorMessage.value = it.error
+                    }
+                }
             }
         )
     }
@@ -96,7 +107,7 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            ErrorField(errorMessage = "")
+            ErrorField(errorMessage = errorMessage.value)
 
             Spacer(modifier = Modifier.height(35.dp))
 

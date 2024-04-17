@@ -15,7 +15,9 @@ interface AuthService {
 
     suspend fun login(username: String, password: String): Task<QuerySnapshot>
 
-    suspend fun registerDetailsChecker(username: String, email: String): Task<QuerySnapshot>
+    suspend fun usernameChecker(username: String): Task<QuerySnapshot>
+
+    suspend fun emailChecker(email: String): Task<QuerySnapshot>
 
     suspend fun loginDetailsChecker(emailOrUsername: String): Task<QuerySnapshot>
 }

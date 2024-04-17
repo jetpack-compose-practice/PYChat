@@ -181,9 +181,8 @@ fun ErrorField(errorMessage: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(13.dp)
             .padding(horizontal = 5.dp)
     ) {
-        Text(text = errorMessage, style = Typography.labelMedium, color = Color.Red)
+        Text(text = errorMessage, style = Typography.labelLarge, color = Color.Red)
     }
 }

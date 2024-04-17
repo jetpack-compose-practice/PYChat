@@ -3,6 +3,7 @@ package com.piyushprajpti.pychat.presentation.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.piyushprajpti.pychat.domain.repository.AuthRepository
+import com.piyushprajpti.pychat.util.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,16 +18,18 @@ class AuthViewModel @Inject constructor(
         username: String,
         email: String,
         password: String,
-        callBack: () -> Unit
+        callBack: (Response<Boolean>) -> Unit
     ) {
         viewModelScope.launch {
-            repository.register(name, username, email, password, callBack)
+            val response = repository.register(name, username, email, password)
+            callBack(response)
         }
     }
 
-    fun onLogin(emailOrUsername: String, password: String, callBack: () -> Unit) {
+    fun onLogin(emailOrUsername: String, password: String, callBack: (Response<String>) -> Unit) {
         viewModelScope.launch {
-            repository.login(emailOrUsername, password, callBack)
+            val response = repository.login(emailOrUsername, password)
+            callBack(response)
         }
     }
 

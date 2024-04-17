@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.piyushprajpti.pychat.presentation.BackButton
 import com.piyushprajpti.pychat.presentation.DefaultMargin
+import com.piyushprajpti.pychat.util.Response
 
 @Composable
 fun RegistrationScreen(
@@ -43,6 +44,9 @@ fun RegistrationScreen(
     val password = remember {
         mutableStateOf(TextFieldValue(""))
     }
+    val errorMessage = remember {
+        mutableStateOf("")
+    }
 
     fun onRegisterClick() {
         viewModel.onRegister(
@@ -51,7 +55,16 @@ fun RegistrationScreen(
             email = email.value.text,
             password = password.value.text,
             callBack = {
-                onRegisterSuccess()
+
+                when (it) {
+                    is Response.Success -> {
+                        onRegisterSuccess()
+                    }
+
+                    is Response.Error -> {
+                        errorMessage.value = it.error
+                    }
+                }
             }
         )
     }
@@ -108,9 +121,9 @@ fun RegistrationScreen(
                 icon = Icons.Outlined.Password,
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-            ErrorField(errorMessage = "")
+            ErrorField(errorMessage = errorMessage.value)
 
             Spacer(modifier = Modifier.height(35.dp))
 
